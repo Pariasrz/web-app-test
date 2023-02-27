@@ -13,7 +13,7 @@ import numpy as np
 #naming our app as app
 app= Flask(__name__)
 #loading the pickle file for creating the web app
-model= pickle.load(open('/mnt/c/Users/Pariya/Desktop/Program/finalized_model.sav', 'rb'))
+model= pickle.load(open('finalized_model.sav', 'rb'))
 #defining the different pages of html and specifying the features required to be filled in the ht
 
 @app.route("/")
