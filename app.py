@@ -7,7 +7,6 @@ Created on Mon Feb 27 09:37:55 2023
 
 from flask import Flask, request, jsonify, render_template
 import joblib
-from pyforest import *
 import numpy as np
 
 #naming our app as app
