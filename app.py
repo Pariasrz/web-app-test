@@ -5,21 +5,21 @@ Created on Mon Feb 27 09:37:55 2023
 @author: Pariya
 """
 
-#importing the necessary libraries for deployment
-import pickle
 from flask import Flask, request, jsonify, render_template
+import joblib
 from pyforest import *
 import numpy as np
+
 #naming our app as app
 app= Flask(__name__)
 #loading the pickle file for creating the web app
-model= pickle.load(open('finalized_model.sav', 'rb'))
-#defining the different pages of html and specifying the features required to be filled in the ht
+model= joblib.load(open("model.pkl", "rb"))
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
+@app.route("/predict", methods=["POST"])
 def predict():
 #specifying our parameters as data type float
     int_features= [float(x) for x in request.form.values()]
